@@ -1,1 +1,8 @@
 .vscode
+
+/app/env/*
+
+*.pyc
+*.pio
+
+**/_pychache_/
