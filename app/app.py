@@ -38,8 +38,8 @@ def request_questions(amount: int) -> List[Question]:
         result.append(make_unique(q))
     return result
 
-def make_unique(q: Question, dt: datetime) -> Question:
-    if Question.query.filter_by(id=q.id).first() != None :
+def make_unique(q: Question, dt: datetime, current_request: List[Question]) -> Question:
+    if Question.query.filter_by(id=q.id).first() != None or q in current_request:
         r = requests.get("https://jservice.io/api/random?count=1")
         qq = Question(r.json[0], dt)
         return make_unique(qq, dt)

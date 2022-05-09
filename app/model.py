@@ -4,15 +4,13 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, Date
 
-Base = declarative_base()
-db = SQLAlchemy()
 class Question(Base):
     __tablename__ = "questions"
 
-    id: int = db.Column(db.Integer, primary_key=True)
-    question: str = db.Column(db.String())
-    answer: str = db.Column(db.String())
-    timestamp: datetime = db.Column(db.DateTime)
+    id: int = Column(Integer, primary_key=True)
+    question: str = Column(String(256))
+    answer: str = Column(String(256))
+    timestamp: datetime = Column(DateTime())
 
     def __init__(self, i: dict):
         self.id = i['id']
