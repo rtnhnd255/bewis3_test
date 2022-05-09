@@ -1,8 +1,6 @@
 from datetime import datetime
-from logging.config import dictConfig
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer, String, Date
+from database import Base
+from sqlalchemy import Column, Integer, String, DateTime
 
 class Question(Base):
     __tablename__ = "questions"

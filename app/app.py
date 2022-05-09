@@ -57,4 +57,4 @@ def write_batch_questions(questions: List[Question]):
 
 if __name__ == "__main__":
     db.create_all()
-    app.run(debug=False)
+    app.run(host = '0.0.0.0', port=5090, debug=True)
